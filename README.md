@@ -3,6 +3,8 @@
 
 Project SURVEA is an end-to-end predictive maintenance platform for four critical power substation assets: transformers, generators, circuit breakers, and protection relays. It combines Random Forest fault classification, LSTM degradation prognostics, a source-grounded operator advisory system, and a live Digital Twin bridge — all surfaced through a real-time Streamlit dashboard. 
 
+![Snapshot of the Project Architecture](Project_SURVEA.png)
+
 This framework operates as a standalone prognostics and health management (PHM) system. However, the foundational physics-based Digital Twin utilized for real-time telemetry generation and power flow co-simulation (IEEE 39 and 118-bus networks) was originally architected under **Project SWING** (Physics-Validated AI Architecture for Autonomous Grid Resilience). SURVEA adapts SWING's Digital Twin infrastructure to focus exclusively on multi-modal asset health monitoring.
 
 The Streamlit frontend never fabricates data. In live mode, it pulls current telemetry from the Digital Twin's `/asset_health/{grid}` endpoint and runs it through the trained models. In demo mode (twin unreachable), it replays a real row from each asset's own historical CSV. The distinction is always visible to the operator.
