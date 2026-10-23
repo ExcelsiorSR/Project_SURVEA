@@ -1,0 +1,140 @@
+Reference (venue / year),"Asset Scope
+& Modality","Classification
+Method","Best Reported
+Macro F1","Prognostic
+Target","Cross-Unit
+Generalisation","Physics /
+DT Validation","Standards-Grounded
+Advisory","Deployment
+Mode"
+"Winkel et al.
+IEEE Trans. Reliability, 2024 [6]","Protection Relay
+Waveform (run-to-failure)","Dataset contribution
+(no novel classifier)","Not reported
+(data paper)","RUL: operations
+until failure",Not reported,None,None,"Real endurance
+test bench"
+"Winkel et al.
+IEEE OJ-IES, 2024 [7]","Protection Relay
+Waveform + pseudo-labels",Pseudo-label ML,"Improved over baseline
+(exact value not reported)",Not reported,"Partially addressed
+via pseudo-labelling",None,None,Benchmark dataset
+"Shi et al.
+IEEE Trans. DEI, 2024 [12]","Transformer
+DGA (chemical)","Capsule Network
+(domain-knowledge embed.)","~0.94 (accuracy
+reported; F1 inferred)",Not reported,Not reported,None,None,"Benchmark dataset
+(IEC TC10)"
+"Saroja et al.
+IEEE Trans. DEI, 2024 [13]","Transformer
+DGA ratios + MCDM",ML + MCDM ensemble,"~0.91 (accuracy
+reported; F1 inferred)",Not reported,Not reported,None,None,Benchmark dataset
+"Demirci et al.
+IJEPES, 2024 [14]","Transformer
+DGA multi-sensor fusion","Kalman filter
++ classifier","Not reported
+(diagnostic accuracy only)",Not reported,Not reported,None,None,Benchmark dataset
+"Santos et al.
+EPSR, 2023 [16]","Substation system
+(conceptual)","Architecture framework
+(no classifier trained)","N/A (architecture
+paper)",N/A,N/A,"Conceptual only
+(not empirically tested)","Mentioned in
+framework","Conceptual /
+architecture paper"
+"Sifat et al.
+EPSR, 2024 [17]","Grid-level DT
+(multi-domain, conceptual)","Systems-engineering
+framework","N/A (framework
+paper)",N/A,N/A,"Proposed; not
+empirically tested",None,"Conceptual /
+framework paper"
+"Fernandes et al.
+J. Braz. SMSE 48:409, 2026","Bearings, turbines, fuel
+cells, pumps (surveyed)
+Vibration / capacitance
+(single modality per study)","CNN, LSTM, SVM, RF
+(surveyed, not deployed)
+CCM: only 48% of variant
+combinations explored","Best in corpus: 1.000
+(large, clean datasets)
+Transformer DGA gap:
+not addressed","RUL (bearings) dominant
+No multi-asset unified
+regression pipeline found","Identified as gap:
+only relay endurance
+corpus addresses this","Identified as
+exploration gap in CCM","Not addressed
+in any reviewed study","All studies: benchmark
+or simulation datasets
+No real substation
+deployment found"
+"Aeggegn et al.
+Next Energy 13:100822, 2026","Power transformer
+(single asset, DGA-centric)
+135 papers reviewed
+(2016–2026)","CNN-LSTM Hybrid: 94.1%
+RF baseline: 87.6%
+Stacking Ensemble: 96.1%
+(meta-analytic means)","Best reported: 99%
+(CNN-LSTM on benchmark)
+Real-field validation:
+only 19.4% of papers","RUL / HI (transformer
+only); DGA-based RUL
+regression identified as
+major open problem","Cross-manufacturer
+drop: -8 to -23% accuracy
+Identified as critical
+gap for deployment","DT + AI: 95.2% acc.
+(meta-analytic mean)
+Non-mutating physics
+oracle: not implemented","XAI (SHAP/LIME)
+mentioned but not
+standards-referenced;
+no traceable advisory","80.6% of reviewed papers:
+benchmark/retrospective only
+Deployment gap identified
+as primary barrier"
+"★  This Work — SURVEA
+(Roy et al., 2026)","4 asset types simultaneously:
+Transformer (DGA/chemical)
+Generator (vibration/thermal)
+Circuit Breaker (TCCS/SF₆)
+Relay (phasors + waveforms)","Class-weighted RF (300 trees)
+Transformer:   F1 = 0.816
+Generator:     F1 = 1.0
+Circuit Breaker: F1 = 0.998
+Relay (Logic):   F1 = 0.915
+Relay (Endurance): F1 = 1.0","Transformer: 0.816
+Generator: 1.0
+CB: 0.998  Relay: 0.915
+Relay Endur.: 1.0
+(all from live model runs)","Per-asset (data-driven):
+Transformer → DGA severity index
+Generator → Health Index
+CB → Health Index
+Relay Endurance → RUL
+(true ground-truth countdown)
+Plant Log → Max bearing temp","Relay endurance ablation:
+Raw features:    F1 = 0.725
++ z-score features: F1 = 0.943
+(train RELAY-0097, test RELAY-0139)
+Only result in this study using
+genuine unit-level holdout","pandapower IEEE 39/118-bus
+Newton-Raphson AC power flow
+Non-mutating physics oracle:
+every candidate action tested
+on deep copy of live grid
+Bisection recovery: 65.5 MW
+shed restores GRI 49.0→61.0","Deterministic RAG — NO LLM:
+IEGC · CBIP Pub. 295/296
+CEA Grid Standards 2010
+IS 12075:2008 · IS 10118 (Pt IV)
+CG AL-Series O&M Manual
+Every guidance sentence traces
+to exact source_doc + clause","Live mode: polls real Digital
+Twin telemetry (IEEE 39/118)
+Demo mode: real historical
+row from same training CSV
+Mode always displayed to
+operator — never conflated"

@@ -1,0 +1,47 @@
+"Research Gap
+(source: Fernandes et al. 2026; Aeggegn et al. 2026)","Addressed
+by SURVEA?",How SURVEA Addresses It
+"Multi-asset, multi-modal data fusion in one pipeline
+(CCM: 0% of reviewed studies)",✅ YES,"Single config schema (src/config.py) drives RF + LSTM
+across Transformer (DGA), Generator (vibration/thermal),
+CB (TCCS/SF₆), Relay (phasors/waveforms) simultaneously"
+"Combined fault classification AND continuous RUL prognostics
+in the same pipeline (treated as separate problems in 100% of studies)",✅ YES,"AssetHealthPredictor exposes .classify() and .forecast()
+from the same feature schema. RF and LSTM outputs are
+complementary in one operator brief — never merged or conflated"
+"Cross-unit generalisation testing for protection relays
+(only 1 of 18 Fernandes corpus papers tested on unseen hardware)",✅ YES,"Explicit ablation: train RELAY-0097 (100k ops), test on
+RELAY-0139 (99k ops). Raw features: F1 = 0.725 →
+per-unit z-score features: F1 = 0.943"
+"Standards-traceable operator advisory (no paper in either
+review corpus links model output to a verified maintenance clause)",✅ YES,"Deterministic RAG (no LLM): exact-tag lookup → paraphrased
+clauses from IEGC, CBIP Pub. 295/296, CEA 2010,
+IS 12075:2008, IS 10118 (Pt IV), CG AL-Series O&M manual.
+Every sentence has source_doc + source_section"
+"Physics/DT validation of proposed corrective actions
+(non-mutating evaluation loop: not implemented in any reviewed study)",✅ YES,"copy.deepcopy(Nlive) for every candidate action. Real
+Newton-Raphson AC power flow on the copy. Only the
+winning action is written to the live grid state.
+Bisection recovery: 65.5 MW shed → GRI 49.0 → 61.0"
+"IoT / IIoT interface for live telemetry-fed classification
+(only 2 of 96 CCM cells covered; AIoT: 0%)",⚠️ PARTIAL,"DigitalTwinClient polls live simulated telemetry over HTTP
+from the pandapower IEEE twin (FastAPI + WebSocket).
+Not a real substation IoT deployment — simulator acting as
+IIoT proxy, validated against real training-data baselines"
+"Real-field operational validation — 80.6% of transformer PdM
+papers use only benchmark/retrospective data (Aeggegn et al.)",⚠️ PARTIAL,"Three real-data sources used: relay endurance (199k real
+switching operations, 2 physical units), steam-alternator
+plant log (real hourly telemetry, no synthetic augmentation).
+IEEE twin operates as a validated physics proxy, not a
+real substation — deployment gap explicitly documented"
+"Ground-truth RUL target (most prognostic papers use derived
+Health Indices, not observed failure countdowns)",⚠️ PARTIAL,"Relay endurance: RUL = (total_ops − 1 − op_index) —
+genuine countdown from a real run-to-failure endurance test.
+Transformer / Generator / CB: derived HI / severity index
+used instead (dataset limitation documented, not hidden).
+Per-asset target rationale published in paper Section 3.8"
+"Class imbalance handling in DGA-based transformer classifiers
+(majority normal class inflates accuracy, masks rare fault recall)",✅ YES,"class_weight='balanced' in RF (wᵢ = n / (C·nᵢ) per class).
+T1 class: only 6 samples — still classified at F1 > 0 with
+balancing. Macro F1 (not accuracy) is the headline metric
+throughout. No SMOTE or GAN used (data distribution preserved)"
