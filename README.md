@@ -225,15 +225,15 @@ Project SURVEA focuses on predictive maintenance and asset health prognostics fo
 
 ## Team & Contributions
 
-- **Utthan Singh Roy** *Project Lead & AI Architecture*
+- **Utthan Singh Roy[** *Project Lead & AI Architecture*
     - B.Tech in Electrical Engineering, Madan Mohan Malaviya University of Technology (MMMUT)
     - B.Sc. (Hons) in Data Science and Artificial Intelligence, IIT Guwahati
 
-- **Vartika Pandey** *Frontend UI/UX & HMI Integration*
+- **Vartika Pandey[https://github.com/vartika1207]** *Frontend UI/UX & HMI Integration*
     - B.Tech in Electrical Engineering, Madan Mohan Malaviya University of Technology (MMMUT)
 
-- **Raj Kamal** *Data Engineering & Systems Integration*
+- **Raj Kamal[https://github.com/Raj2403-01]** *Data Engineering & Systems Integration*
     - B.Tech in Electrical Engineering, Madan Mohan Malaviya University of Technology (MMMUT)
 
-- **Shivangi Singh** *Power Systems Domain & Regulatory Mapping*
+- **Shivangi Singh[https://github.com/ShivangiSingh-rgb]** *Electrical Domain Support*
     - B.Tech in Electrical Engineering, Madan Mohan Malaviya University of Technology (MMMUT)
